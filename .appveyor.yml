@@ -1,0 +1,11 @@
+image: Visual Studio 2017
+environment:
+  nodejs_version: "LTS"
+install:
+  - ps: Install-Product node $env:nodejs_version
+  - yarn
+before_test:
+  - yarn lint
+  - yarn build
+test_script:
+  - yarn test
